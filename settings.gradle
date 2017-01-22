@@ -16,4 +16,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'rdkit_filedrop'
+rootProject.name = 'xchem_filedrop'
