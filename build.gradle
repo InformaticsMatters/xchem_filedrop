@@ -1,6 +1,17 @@
 
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'com.bmuschko.docker-java-application'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-docker-plugin:3.0.5'
+    }
+}
 
 
 //mainClassName = "org.apache.camel.cdi.Main"
@@ -28,4 +39,20 @@ dependencies {
 
     //testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
     testCompile 'junit:junit:4.12'
+}
+
+/*
+Docker image generation.
+
+To run the image you need to create an application.properties file with the congfiguration params
+and then run with something like this:
+docker run -it --rm -v $(PWD)/application.properties:/xchem_filedrop/application.properties -w /xchem_filedrop informaticsmatters/xchem_filedrop
+ */
+docker {
+    javaApplication {
+        baseImage = 'informaticsmatters/pipelines'
+        maintainer = 'Tim Dudgeon "tdudgeon@informaticsmatters.com"'
+        ports = []
+        tag = 'informaticsmatters/xchem_filedrop'
+    }
 }

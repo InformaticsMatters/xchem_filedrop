@@ -28,7 +28,7 @@ filter_cmd=<path to python script>/rxn_smarts_filter.py?useStderrOnEmptyStdout=t
 1. For testing create an input and output directory in the project root directory and drop an SDF
 into the input dir.
 
-## Instructions for running
+## Instructions for running using a distribution
 
 Similar to above, but:
 
@@ -36,3 +36,9 @@ Similar to above, but:
 1. Unzip where you plan to use it
 1. Create the application.properties as described above
 1. Run the app using <unzipped distro>/bin/xchem_filedrop. Ctrl-C to stop.
+
+## Instructions for running using a Docker image
+
+1. Build the Docker image using the dockerBuildImage gradle task
+1. Create the application.properties file in the directory where you are going to run the container 
+1. Run using something like this: `docker run -it --rm -v $(PWD)/application.properties:/xchem_filedrop/application.properties -w /xchem_filedrop informaticsmatters/xchem_filedrop`

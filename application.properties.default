@@ -1,0 +1,7 @@
+poll_interval=2500
+box_client_id=<box client id>
+box_client_secret=<box client secret>
+box_username=<box username>
+box_userpassword=<box user pasword>
+
+filter_cmd=<path to script>/rxn_smarts_filter.py?useStderrOnEmptyStdout=true&args=-if sdf -o output
